@@ -10,3 +10,7 @@
 > - guest kedua merupakan password untuk username tersebut.
 > - localhost menunjukkan bahwa server RabbitMQ berjalan di computer lokal.
 > - 5672 merupakan port default yang digunakan oleh protokol AMQP.
+
+- Simulation Slow Subscriber
+![Slow_Subscriber](images/Slow_Subscriber.png)
+  Gambar tersebut menunjukkan queue yang terbentuk ketika publisher dijalankan secara cepat beberapa kali, padahal subscriber diperlambat dengan delay. Saya menjalankan publisher sebanyak 4 kali sehingga total queue mencapai 20 karena tiap eksekusi mengirim 5 pesan.
