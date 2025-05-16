@@ -13,4 +13,9 @@
 
 - Simulation Slow Subscriber
 ![Slow_Subscriber](images/Slow_Subscriber.png)
-  Gambar tersebut menunjukkan queue yang terbentuk ketika publisher dijalankan secara cepat beberapa kali, padahal subscriber diperlambat dengan delay. Saya menjalankan publisher sebanyak 4 kali sehingga total queue mencapai 20 karena tiap eksekusi mengirim 5 pesan.
+Gambar tersebut menunjukkan queue yang terbentuk ketika publisher dijalankan secara cepat beberapa kali, padahal subscriber diperlambat dengan delay. Saya menjalankan publisher sebanyak 4 kali sehingga total queue mencapai 20 karena tiap eksekusi mengirim 5 pesan.
+
+- Reflection and Running At Least Three Subscribers
+![Three_Subscriber](images/Three_Subscribers.png)
+![RabbitMQ_ThreeSubs](images/RabbitMQ_ThreeSubs.png)
+  Ketika menjalankan tiga instance subscriber pada tiga terminal terpisah, message dari publisher yang dijalankan beberapa kali terbagi secara merata ke masing-masing subscriber. Hal ini dapat dilihat dari log ketiga terminal yang masing-masing user_id-nya berbeda. Meski begitu, subscriber dalam kasus ini menjadi tidak menerima keseluruhan message yang dikirimkan. Ini dapat menjadi masalah Ketika kita ingin setiap subscriber sama-sama menerima keseluruhan message. Jika ingin meningkatkan hal ini lebih lanjut, system apat menambahkan mekanisme asinkron dengan basis tokio agar subscriber menjadi lebih scalable dalam menangani workload yang besar. 
